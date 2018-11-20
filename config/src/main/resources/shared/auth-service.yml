@@ -1,0 +1,4 @@
+app:
+  jwt:
+    singning:
+      key: NTZMoNwiw7fil4vvygdtQDpj5PUxe9ycquOC6F2Jrribjs7crqLi9d6I2YS7Tqk50v0yyzxyFeXkmz92qkAh6PlMmH4ANmJr1sJ

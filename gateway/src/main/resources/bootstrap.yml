@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:8081}
+      fail-fast: true

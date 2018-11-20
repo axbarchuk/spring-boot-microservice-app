@@ -1,0 +1,18 @@
+logging:
+  level:
+    org.springframework.security: INFO
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_HOST:http://localhost:8083}/eureka/
+
+# Allows to verify access for TokenStore.
+# This key have to be the same as value of key 'app.jwt.singning.key' from auth-service
+security:
+  oauth2:
+    resource:
+      jwt:
+        keyValue: "NTZMoNwiw7fil4vvygdtQDpj5PUxe9ycquOC6F2Jrribjs7crqLi9d6I2YS7Tqk50v0yyzxyFeXkmz92qkAh6PlMmH4ANmJr1sJ"

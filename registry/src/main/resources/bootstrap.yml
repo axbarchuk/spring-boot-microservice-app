@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: registry
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:8081}
+      fail-fast: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
