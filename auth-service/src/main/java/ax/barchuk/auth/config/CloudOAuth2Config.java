@@ -30,8 +30,6 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class CloudOAuth2Config extends AuthorizationServerConfigurerAdapter {
 
-    private final String PASSWORD_NOOP = "{noop}";
-
     @Qualifier("authenticationManagerBean")
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
@@ -42,16 +40,22 @@ public class CloudOAuth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // ClientDetailsService
         clients.inMemory()
-                .withClient("browser")
-                .secret(PASSWORD_NOOP)
+                .withClient(env.getRequiredProperty("app.clients.browser.name"))
+                .secret(env.getRequiredProperty("app.clients.browser.password"))
                 .authorizedGrantTypes("password", "refresh_token")
-                .scopes("ui")
+                .scopes(env.getRequiredProperty("app.clients.browser.scope"))
 
                 .and()
-                .withClient("menu-service")
-                .secret(PASSWORD_NOOP + "password")
+                .withClient(env.getRequiredProperty("app.clients.menu.name"))
+                .secret(env.getRequiredProperty("app.clients.menu.password"))
                 .authorizedGrantTypes("client_credentials", "refresh_token")
-                .scopes("server");
+                .scopes(env.getRequiredProperty("app.clients.menu.scope"))
+
+                .and()
+                .withClient(env.getRequiredProperty("app.clients.order.name"))
+                .secret(env.getRequiredProperty("app.clients.order.password"))
+                .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes(env.getRequiredProperty("app.clients.order.scope"));
     }
 
     @Override
