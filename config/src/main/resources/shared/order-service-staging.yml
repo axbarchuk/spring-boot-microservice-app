@@ -1,0 +1,8 @@
+security:
+  oauth2:
+    client:
+      clientId: order-service
+      clientSecret: password
+      accessTokenUri: http://localhost:8085/uaa/oauth/token # Calling of Security Service through Gateway
+      grant-type: client_credentials
+      scope: server

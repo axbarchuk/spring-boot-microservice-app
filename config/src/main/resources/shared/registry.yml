@@ -1,0 +1,3 @@
+eureka:
+  dashboard:
+    path: /dashboard
