@@ -1,0 +1,12 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://localhost:8081}
+      fail-fast: true
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
