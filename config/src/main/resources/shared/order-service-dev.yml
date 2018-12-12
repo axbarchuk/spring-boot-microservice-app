@@ -1,8 +1,0 @@
-security:
-  oauth2:
-    client:
-      clientId: order-service
-      clientSecret: password
-      accessTokenUri: http://localhost:8082/oauth/token # Direct calling of Security Service
-      grant-type: client_credentials
-      scope: server
