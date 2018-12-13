@@ -12,6 +12,7 @@ public class CloudSecurityConfig extends ResourceServerConfiguration {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-                .mvcMatchers(HttpMethod.OPTIONS, "/**");
+                .mvcMatchers(HttpMethod.OPTIONS, "/**")
+                .mvcMatchers(HttpMethod.GET, "/actuator/**");
     }
 }

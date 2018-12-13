@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: menu-service-config
+data:
+  application.yaml: |-
+    security:
+      oauth2:
+        resource:
+          jwt:
+            keyValue: ${JWT_KEY}

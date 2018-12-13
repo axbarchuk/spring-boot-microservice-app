@@ -1,10 +1,10 @@
 server:
-  port: 8084
+  port: ${SERVICE_PORT:8084}
 
 spring:
   application:
     name: menu-service
   cloud:
-    config:
-      uri: ${CONFIG_SERVER:http://localhost:8081}
-      fail-fast: true
+    kubernetes:
+      config:
+        name: menu-service-config
