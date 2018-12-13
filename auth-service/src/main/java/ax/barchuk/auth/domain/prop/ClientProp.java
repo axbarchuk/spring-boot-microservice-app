@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "app.clients")
+@ConfigurationProperties(prefix = "app")
 public class ClientProp {
     private List<ClientData> clients;
 }
