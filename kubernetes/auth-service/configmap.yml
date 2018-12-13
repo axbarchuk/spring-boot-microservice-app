@@ -4,9 +4,6 @@ metadata:
   name: auth-service-config
 data:
   application.yaml: |-
-    logging:
-      level:
-        org.springframework.security: DEBUG
     app:
       jwt:
         singning:
@@ -15,7 +12,7 @@ data:
       clients:
         - name: 'browser'
           password: ${CLIENT_BROWSER_PASSWORD}
-          scope:
+          scopes:
             - ui
           grantTypes:
             - password
@@ -23,7 +20,7 @@ data:
 
         - name: 'menu-service'
           password: ${CLIENT_MENU_SERVICE_PASSWORD}
-          scope:
+          scopes:
             - server
           grantTypes:
             - client_credentials
