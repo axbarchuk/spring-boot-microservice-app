@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-service-config
+data:
+  application.yaml: |-
+    logging:
+      level:
+        org.springframework.security: DEBUG
+    app:
+      jwt:
+        singning:
+          key: ${JWT_KEY}
+
+      clients:
+        - name: 'browser'
+          password: ${CLIENT_BROWSER_PASSWORD}
+          scope:
+            - ui
+          grantTypes:
+            - password
+            - refresh_token
+
+        - name: 'menu-service'
+          password: ${CLIENT_MENU_SERVICE_PASSWORD}
+          scope:
+            - server
+          grantTypes:
+            - client_credentials
+            - refresh_token
+
+        - name: 'order-service'
+          password: ${CLIENT_ORDER_SERVICE_PASSWORD}
+          scopes:
+            - server
+          grantTypes:
+            - client_credentials
+            - refresh_token
