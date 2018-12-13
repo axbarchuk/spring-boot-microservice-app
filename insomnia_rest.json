@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-12-13T15:24:51.942Z",
+	"__export_date": "2018-12-13T15:57:04.994Z",
 	"__export_source": "insomnia.desktop.app:v6.2.3",
 	"resources": [
 		{
@@ -33,15 +33,26 @@
 					"domain": "localhost",
 					"hostOnly": true,
 					"httpOnly": true,
-					"id": "2500444390714316",
+					"id": "4810067535530813",
 					"key": "JSESSIONID",
 					"lastAccessed": "2018-11-21T10:44:30.448Z",
 					"path": "/",
 					"value": "9E2F889FC4DDFB0DDC7BFD7DD4D89D90"
+				},
+				{
+					"creation": "2018-12-13T15:56:20.353Z",
+					"domain": "192.168.99.100",
+					"hostOnly": true,
+					"httpOnly": true,
+					"id": "7156455237866242",
+					"key": "JSESSIONID",
+					"lastAccessed": "2018-12-13T15:56:22.312Z",
+					"path": "/",
+					"value": "600D56D38966299B9D9419F122D31795"
 				}
 			],
 			"created": 1542725026905,
-			"modified": 1542797070448,
+			"modified": 1544716582312,
 			"name": "Default Jar",
 			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
 			"_type": "cookie_jar"
@@ -76,6 +87,17 @@
 			"metaSortKey": -1542726486099.5,
 			"modified": 1542796792235,
 			"name": "Token",
+			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_2d1c96cad1ac49d78c01fbc09b2b792e",
+			"created": 1544716244850,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1544716244850,
+			"modified": 1544716244850,
+			"name": "Actuator",
 			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
 			"_type": "request_group"
 		},
@@ -116,7 +138,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542726486080.75,
 			"method": "POST",
-			"modified": 1544713534649,
+			"modified": 1544716606712,
 			"name": "Create Security Token",
 			"parameters": [],
 			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
@@ -127,52 +149,6 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ auth.host  }}/oauth/token?grant_type=password",
-			"_type": "request"
-		},
-		{
-			"_id": "req_579b1d00ce024ca6a89452c0110dfc09",
-			"authentication": {},
-			"body": {},
-			"created": 1542726486062,
-			"description": "",
-			"headers": [],
-			"isPrivate": false,
-			"metaSortKey": -1542726486062,
-			"method": "GET",
-			"modified": 1542796489002,
-			"name": "Get Configurations",
-			"parameters": [],
-			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingMaxTimelineDataSize": 1000,
-			"settingRebuildPath": true,
-			"settingSendCookies": true,
-			"settingStoreCookies": true,
-			"url": "http://localhost:8081/auth-service/default",
-			"_type": "request"
-		},
-		{
-			"_id": "req_8a1cafd7f43440749ccc2e8428b003dd",
-			"authentication": {},
-			"body": {},
-			"created": 1544706830730,
-			"description": "",
-			"headers": [],
-			"isPrivate": false,
-			"metaSortKey": -1542726486012,
-			"method": "GET",
-			"modified": 1544714668044,
-			"name": "Actuator Health",
-			"parameters": [],
-			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingMaxTimelineDataSize": 1000,
-			"settingRebuildPath": true,
-			"settingSendCookies": true,
-			"settingStoreCookies": true,
-			"url": "{{ auth.host  }}/actuator/health",
 			"_type": "request"
 		},
 		{
@@ -228,7 +204,7 @@
 					"host": "http://192.168.99.100:30081"
 				},
 				"menu": {
-					"host": "http://192.168.99.100:"
+					"host": "http://192.168.99.100:30084"
 				},
 				"order": {
 					"host": "http://192.168.99.100:"
@@ -236,8 +212,8 @@
 			},
 			"isPrivate": false,
 			"metaSortKey": 1544706498761,
-			"modified": 1544706547127,
-			"name": "Kubernetes",
+			"modified": 1544716595129,
+			"name": "Kubernetes Direct",
 			"parentId": "env_9556b7b69c414347a3777087839c0006",
 			"_type": "environment"
 		},
@@ -255,7 +231,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542730583471,
 			"method": "GET",
-			"modified": 1542797060706,
+			"modified": 1544716579710,
 			"name": "Get Menu",
 			"parameters": [],
 			"parentId": "fld_fad0bc9450dc44baa650f88c43738c81",
@@ -282,7 +258,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542730583421,
 			"method": "GET",
-			"modified": 1542797066799,
+			"modified": 1544716595556,
 			"name": "Get Menu By Name",
 			"parameters": [],
 			"parentId": "fld_fad0bc9450dc44baa650f88c43738c81",
@@ -383,7 +359,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542726486087,
 			"method": "POST",
-			"modified": 1544711885937,
+			"modified": 1544716609535,
 			"name": "Client Credentials",
 			"parameters": [],
 			"parentId": "fld_1b72776c04ab43ea8c6d43282fbf0730",
@@ -412,7 +388,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542726486074.5,
 			"method": "POST",
-			"modified": 1542796932602,
+			"modified": 1544716611095,
 			"name": "Regresh Token",
 			"parameters": [
 				{
@@ -434,6 +410,52 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ auth.host  }}/oauth/token",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8a1cafd7f43440749ccc2e8428b003dd",
+			"authentication": {},
+			"body": {},
+			"created": 1544706830730,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1542509326270,
+			"method": "GET",
+			"modified": 1544716574253,
+			"name": "Auth Health",
+			"parameters": [],
+			"parentId": "fld_2d1c96cad1ac49d78c01fbc09b2b792e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ auth.host  }}/actuator/health",
+			"_type": "request"
+		},
+		{
+			"_id": "req_90115603756243659ca1b0542a2e3cc1",
+			"authentication": {},
+			"body": {},
+			"created": 1544716255859,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1542509326220,
+			"method": "GET",
+			"modified": 1544716575446,
+			"name": "Menu Health",
+			"parameters": [],
+			"parentId": "fld_2d1c96cad1ac49d78c01fbc09b2b792e",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ menu.host  }}/actuator/health",
 			"_type": "request"
 		}
 	]
