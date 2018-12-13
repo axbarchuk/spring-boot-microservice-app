@@ -1,5 +1,6 @@
 package ax.barchuk.auth.config;
 
+import ax.barchuk.auth.domain.prop.JWTKeyProp;
 import ax.barchuk.auth.enhancer.UserTokenEnhancer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,6 +16,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -33,29 +35,13 @@ public class CloudOAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Qualifier("authenticationManagerBean")
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
+    private final ClientDetailsService clientDetailsService;
 
-    private final Environment env;
+    private final JWTKeyProp jwtKeyProp;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        // ClientDetailsService
-        clients.inMemory()
-                .withClient(env.getRequiredProperty("app.clients.browser.name"))
-                .secret(env.getRequiredProperty("app.clients.browser.password"))
-                .authorizedGrantTypes("password", "refresh_token")
-                .scopes(env.getRequiredProperty("app.clients.browser.scope"))
-
-                .and()
-                .withClient(env.getRequiredProperty("app.clients.menu.name"))
-                .secret(env.getRequiredProperty("app.clients.menu.password"))
-                .authorizedGrantTypes("client_credentials", "refresh_token")
-                .scopes(env.getRequiredProperty("app.clients.menu.scope"))
-
-                .and()
-                .withClient(env.getRequiredProperty("app.clients.order.name"))
-                .secret(env.getRequiredProperty("app.clients.order.password"))
-                .authorizedGrantTypes("client_credentials", "refresh_token")
-                .scopes(env.getRequiredProperty("app.clients.order.scope"));
+        clients.withClientDetails(clientDetailsService);
     }
 
     @Override
@@ -90,7 +76,7 @@ public class CloudOAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Bean
     protected JwtAccessTokenConverter accessTokenConverter() {
         final JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(env.getRequiredProperty("app.jwt.singning.key"));
+        converter.setSigningKey(jwtKeyProp.getKey());
 
         return converter;
     }

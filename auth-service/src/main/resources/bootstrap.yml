@@ -1,10 +1,11 @@
 server:
-  port: 8082
+  port: ${SERVICE_PORT:8082}
 
 spring:
   application:
     name: auth-service
+
   cloud:
-    config:
-      uri: ${CONFIG_SERVER:http://localhost:8081}
-      fail-fast: true
+    kubernetes:
+      config:
+        name: auth-service-config
