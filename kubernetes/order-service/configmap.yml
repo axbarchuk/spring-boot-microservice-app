@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-service-config
+data:
+  application.yaml: |-
+    security:
+      oauth2:
+        resource:
+          jwt:
+            keyValue: ${JWT_KEY}
+
+        client:
+          clientId: order-service
+          clientSecret: password
+          accessTokenUri: http://auth-service:8080/oauth/token
+          grant-type: client_credentials
+          scope: server

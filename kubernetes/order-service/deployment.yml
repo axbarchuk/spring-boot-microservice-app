@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  labels:
+    app: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: axbarchuk/demo-order-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SERVICE_PORT
+              value: "8080"
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: oauth2-secret
+                  key: secret_key
+          livenessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 5
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
