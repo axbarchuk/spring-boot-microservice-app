@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+    - host: k8s.broocode.com
+      http:
+        paths:
+          - path: /auth
+            backend:
+              serviceName: auth-service
+              servicePort: 8080
+          - path: /menu
+            backend:
+              serviceName: menu-service
+              servicePort: 8080
+          - path: /order
+            backend:
+              serviceName: order-service
+              servicePort: 8080
