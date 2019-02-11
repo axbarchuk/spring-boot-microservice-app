@@ -1,8 +1,8 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-12-14T14:41:50.126Z",
-	"__export_source": "insomnia.desktop.app:v6.2.3",
+	"__export_date": "2019-02-11T15:55:33.620Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
 			"_id": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
@@ -33,7 +33,7 @@
 					"domain": "localhost",
 					"hostOnly": true,
 					"httpOnly": true,
-					"id": "8297401747158892",
+					"id": "7855541559175854",
 					"key": "JSESSIONID",
 					"lastAccessed": "2018-11-21T10:44:30.448Z",
 					"path": "/",
@@ -44,15 +44,26 @@
 					"domain": "192.168.99.100",
 					"hostOnly": true,
 					"httpOnly": true,
-					"id": "5045478058354957",
+					"id": "11500230730257344",
 					"key": "JSESSIONID",
-					"lastAccessed": "2018-12-14T14:40:10.255Z",
+					"lastAccessed": "2018-12-14T14:45:27.570Z",
 					"path": "/",
-					"value": "14E612DBCB63F5D11170B3646D52CECE"
+					"value": "D1E0DA71458021C30841BA08BBDEF920"
+				},
+				{
+					"creation": "2019-02-11T15:49:18.623Z",
+					"domain": "k8s.services.com",
+					"hostOnly": true,
+					"httpOnly": true,
+					"id": "7027537662242547",
+					"key": "JSESSIONID",
+					"lastAccessed": "2019-02-11T15:49:20.759Z",
+					"path": "/",
+					"value": "0FB4563691400CD27BF57C351D08E108"
 				}
 			],
 			"created": 1542725026905,
-			"modified": 1544798410256,
+			"modified": 1549900160760,
 			"name": "Default Jar",
 			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
 			"_type": "cookie_jar"
@@ -138,7 +149,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542726486080.75,
 			"method": "POST",
-			"modified": 1544798089327,
+			"modified": 1549899629768,
 			"name": "Create Security Token",
 			"parameters": [],
 			"parentId": "wrk_fbc27f0d5bdc40a5aa405ec488ac279d",
@@ -200,20 +211,21 @@
 			"color": "#4355cb",
 			"created": 1544706498761,
 			"data": {
+				"HOST": "http://k8s.services.com",
 				"auth": {
-					"host": "http://192.168.99.100:30081"
+					"host": "{{ HOST  }}/auth"
 				},
 				"menu": {
-					"host": "http://192.168.99.100:30084"
+					"host": "{{ HOST  }}/menu"
 				},
 				"order": {
-					"host": "http://192.168.99.100:30086"
+					"host": "{{ HOST  }}/order"
 				}
 			},
 			"isPrivate": false,
 			"metaSortKey": 1544706498761,
-			"modified": 1544798136098,
-			"name": "Kubernetes Direct",
+			"modified": 1549899406529,
+			"name": "Kubernetes",
 			"parentId": "env_9556b7b69c414347a3777087839c0006",
 			"_type": "environment"
 		},
@@ -231,7 +243,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1542730583471,
 			"method": "GET",
-			"modified": 1544798407919,
+			"modified": 1544798726424,
 			"name": "Get Menu",
 			"parameters": [],
 			"parentId": "fld_fad0bc9450dc44baa650f88c43738c81",

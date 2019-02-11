@@ -41,6 +41,13 @@
             <version>${spring-cloud-kubernetes.version}</version>
         </dependency>
 
+        <!-- Cloud K8s Ribbon -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
+            <version>${spring-cloud-kubernetes.version}</version>
+        </dependency>
+
         <!-- Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
