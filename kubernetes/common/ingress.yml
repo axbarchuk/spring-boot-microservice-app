@@ -9,7 +9,7 @@ spec:
     serviceName: default-http-backend
     servicePort: 80
   rules:
-    - host: k8s.broocode.com
+    - host: k8s.services.com
       http:
         paths:
           - path: /auth
